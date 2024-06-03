@@ -1,0 +1,8 @@
+<ul class="book-grid">
+  @for(book of books; track book.ISBN){
+  <app-book-card
+    [book]="book"
+    (click)="addBookToReadingList(book)"
+  ></app-book-card>
+  }
+</ul>

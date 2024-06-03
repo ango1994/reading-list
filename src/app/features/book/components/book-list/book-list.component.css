@@ -1,0 +1,11 @@
+:host {
+  width: 65%;
+}
+
+.book-grid {
+  padding: 0;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  list-style: none;
+}

@@ -1,0 +1,12 @@
+.cover-book {
+  width: 100px;
+  aspect-ratio: 1/1.5;
+  background-size: cover;
+}
+.book-item {
+  width: 100px;
+}
+
+:host {
+  justify-self: center;
+}
