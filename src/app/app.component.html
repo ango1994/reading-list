@@ -1,5 +1,14 @@
 <div>
+  <label for="filterBooks">Filter books by genre</label>
+  <select name="filterBooks" (change)="filterBooks($event)">
+    <option default value="">No filter</option>
+    <option value="Fantasía">Fantasía</option>
+    <option value="Ciencia ficción">Ciencia Ficción</option>
+    <option value="Zombies">Zombies</option>
+  </select>
   <app-book-list></app-book-list>
-  <app-reading-list></app-reading-list>
 </div>
+
+<app-reading-list></app-reading-list>
+
 <router-outlet />

@@ -1,3 +1,5 @@
-@for(book of readingList; track book.ISBN) {
-<img src="{{ book.cover }}" alt="" />
-}
+<ul class="reading-list">
+  @for(book of readingList; track book.ISBN) {
+  <app-book-card [book]="book" (click)="removeBook(book)"></app-book-card>
+  }
+</ul>

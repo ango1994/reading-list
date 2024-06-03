@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reading-list {
+  list-style: none;
+}

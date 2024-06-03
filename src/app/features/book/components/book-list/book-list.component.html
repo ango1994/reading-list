@@ -1,6 +1,7 @@
 <ul class="book-grid">
   @for(book of books; track book.ISBN){
   <app-book-card
+    class="mover-elemento"
     [book]="book"
     (click)="addBookToReadingList(book)"
   ></app-book-card>

@@ -16,16 +16,10 @@ export class BookListComponent implements OnInit {
   constructor(private bookService: BookService) {}
 
   addBookToReadingList(book: Book) {
-    this.bookService.addBookToReadingList(book);
-    const index = this.books.findIndex(
-      (bookInLibrary) => bookInLibrary.ISBN === book.ISBN
-    );
-    this.books.splice(index, 1);
+    this.bookService.moveBookToReadingList(book);
   }
 
   ngOnInit(): void {
-    this.bookService.getBooks().subscribe((libraryResponse) => {
-      this.books = libraryResponse.library.map((item) => item.book);
-    });
+    this.bookService.avaliableBooks$.subscribe((books) => (this.books = books));
   }
 }
