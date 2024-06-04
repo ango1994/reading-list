@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { BookListComponent } from './features/book/components/book-list/book-list.component';
 import { ReadingListComponent } from './features/book/components/reading-list/reading-list.component';
 import { BookService } from './features/book/services/book.service';
+import { AvaliableBooksService } from './features/book/services/avaliable-books.service';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,10 @@ import { BookService } from './features/book/services/book.service';
 export class AppComponent {
   title = 'library';
 
-  constructor(private bookService: BookService) {}
+  constructor(private avaliableBooksService: AvaliableBooksService) {}
 
   filterBooks(event: Event) {
     const optionValue = (event.target as HTMLSelectElement).value;
-    console.log(optionValue);
-    this.bookService.filterByGenre(optionValue);
+    this.avaliableBooksService.filterByGenre(optionValue);
   }
 }

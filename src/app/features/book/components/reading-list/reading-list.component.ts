@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from '../../services/book.service';
 import { Book } from '../../interfaces/book';
 import { BookCardComponent } from '../book-card/book-card.component';
+import { ReadingListService } from '../../services/reading-list.service';
+import { AvaliableBooksService } from '../../services/avaliable-books.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-reading-list',
@@ -12,15 +14,21 @@ import { BookCardComponent } from '../book-card/book-card.component';
 })
 export class ReadingListComponent implements OnInit {
   readingList: Book[] = [];
-  constructor(private bookService: BookService) {}
+  constructor(
+    private readingListService: ReadingListService,
+    private avaliableBooksService: AvaliableBooksService,
+    private storageService: StorageService
+  ) {}
 
   ngOnInit(): void {
-    this.bookService.readingListBooks$.subscribe(
-      (books) => (this.readingList = books)
-    );
+    this.readingListService.readingListBooks$.subscribe((books) => {
+      this.readingList = books;
+    });
   }
 
-  removeBook(book: Book) {
-    this.bookService.moveBookToAvaliable(book);
+  removeBookFromReadingList(book: Book) {
+    this.readingListService.removeBook(book);
+    this.avaliableBooksService.addBook(book);
+    this.storageService.getItem;
   }
 }

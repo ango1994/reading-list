@@ -1,5 +1,8 @@
 <ul class="reading-list">
   @for(book of readingList; track book.ISBN) {
-  <app-book-card [book]="book" (click)="removeBook(book)"></app-book-card>
+  <app-book-card
+    [book]="book"
+    (click)="removeBookFromReadingList(book)"
+  ></app-book-card>
   }
 </ul>
