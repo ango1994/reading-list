@@ -13,8 +13,6 @@ import { AvaliableBooksService } from './features/book/services/avaliable-books.
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'library';
-
   constructor(private avaliableBooksService: AvaliableBooksService) {}
 
   filterBooks(event: Event) {

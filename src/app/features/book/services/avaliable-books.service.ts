@@ -10,6 +10,7 @@ import { StorageService } from './storage.service';
 export class AvaliableBooksService {
   private avaliableBooks = new BehaviorSubject<Book[]>([]);
   avaliableBooks$ = this.avaliableBooks.asObservable();
+  totalBooks = 0;
 
   private localReadingList = 'readingList';
 
@@ -24,6 +25,7 @@ export class AvaliableBooksService {
     this.bookService.getBooks().subscribe((response) => {
       const books = response.library.map((item) => item.book);
       const filteredBooks = this.filterByReadingList(books);
+      this.totalBooks = books.length;
       this.avaliableBooks.next(filteredBooks);
     });
   }
